@@ -1,6 +1,6 @@
-# cinemate
+# CineMate
 
-Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get recommendations, ratings, showtimes, and create watchlists. Elevate your movie experience with CineMate.
+Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get recommendations, ratings, showtime, and create watchlist. Elevate your movie experience with CineMate.
 
 
 ## System Diagram
