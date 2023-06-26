@@ -7,7 +7,7 @@ Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get rec
 ![system-diagram)](https://github.com/ahmaddioxide/moca/assets/75989502/44db26b9-5f85-439c-8bac-c5bc8f8e424b)
 
 ## ERD 
-![CineMate ERD drawio](https://github.com/Ansh-Rathod/Flutter-Bloc-MovieDB-App/assets/75989502/afa7c5c6-674e-4e06-9c85-7e1ee51cd475)
+![CineMate ERD ](https://github.com/Ansh-Rathod/Flutter-Bloc-MovieDB-App/assets/75989502/afa7c5c6-674e-4e06-9c85-7e1ee51cd475)
 
 ## Features
 - [x] As a user, I want to register for a new account and log in to the app to access all the features and functionalities.
