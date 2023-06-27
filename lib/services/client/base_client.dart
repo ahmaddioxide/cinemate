@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
+import 'package:cinemate/constants/api/tmdb_api.dart';
 import 'package:http/http.dart' as http;
-import 'package:cinemate/api/tmdb_api.dart';
 import 'package:cinemate/app_exception.dart';
 
 
