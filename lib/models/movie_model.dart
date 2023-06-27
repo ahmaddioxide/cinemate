@@ -9,76 +9,74 @@ part 'movie_model.g.dart';
 
 @JsonSerializable()
 class Movie {
-  bool adult;
+  final bool adult;
   @JsonKey(name: 'backdrop_path')
-  String? backdropPath;
+  final String? backdropPath;
   @JsonKey(name: 'belongs_to_collection')
-  dynamic? belongsToCollection;
-  int? budget;
-  List<Genre>? genres;
-  String? homepage;
-  int id;
+  final dynamic belongsToCollection;
+  final int? budget;
+  final List<Genre>? genres;
+  final String? homepage;
+  final int id;
   @JsonKey(name: 'imdb_id')
-  String? imdbId;
+  final String? imdbId;
   @JsonKey(name: 'original_language')
-  String originalLanguage;
+  final String originalLanguage;
   @JsonKey(name: 'original_title')
-  String originalTitle;
-  String overview;
-  double popularity;
+  final String originalTitle;
+  final String overview;
+  final double popularity;
   @JsonKey(name: 'poster_path')
-  String? posterPath;
+  final String? posterPath;
   @JsonKey(name: 'production_companies')
-  List<ProductionCompany>? productionCompanies;
+  final List<ProductionCompany>? productionCompanies;
   @JsonKey(name: 'production_countries')
-  List<ProductionCountry>? productionCountries;
+  final List<ProductionCountry>? productionCountries;
   @JsonKey(name: 'release_date')
-  String? releaseDate;
-  int? revenue;
-  int? runtime;
+  final String? releaseDate;
+  final int? revenue;
+  final int? runtime;
   @JsonKey(name: 'spoken_languages')
-  List<SpokenLanguage>? spokenLanguages;
-  String? status;
-  String? tagline;
-  String title;
-  bool? video;
+  final List<SpokenLanguage>? spokenLanguages;
+  final String? status;
+  final String? tagline;
+  final String title;
+  final bool? video;
   @JsonKey(name: 'vote_average')
-  double voteAverage;
+  final double voteAverage;
   @JsonKey(name: 'vote_count')
-  int voteCount;
+  final int voteCount;
   @JsonKey(name: 'genre_ids')
-  List<int>? genreIds;
+  final List<int>? genreIds;
 
-  Movie(
-      {required this.adult,
-        this.backdropPath,
-       this.belongsToCollection,
-       this.budget,
-       this.genres,
-       this.homepage,
-      required this.id,
-       this.imdbId,
-      required this.originalTitle,
-      required this.originalLanguage,
-      required this.overview,
-      required this.popularity,
-       this.posterPath,
-       this.productionCompanies,
-       this.productionCountries,
-       this.releaseDate,
-       this.revenue,
-       this.runtime,
-       this.spokenLanguages,
-       this.status,
-       this.tagline,
-      required this.title,
-       this.video,
-      required this.voteAverage,
-      required this.voteCount,
-       this.genreIds,
-      }
-      );
-
+  Movie({
+    required this.adult,
+    this.backdropPath,
+    this.belongsToCollection,
+    this.budget,
+    this.genres,
+    this.homepage,
+    required this.id,
+    this.imdbId,
+    required this.originalTitle,
+    required this.originalLanguage,
+    required this.overview,
+    required this.popularity,
+    this.posterPath,
+    this.productionCompanies,
+    this.productionCountries,
+    this.releaseDate,
+    this.revenue,
+    this.runtime,
+    this.spokenLanguages,
+    this.status,
+    this.tagline,
+    required this.title,
+    this.video,
+    required this.voteAverage,
+    required this.voteCount,
+    this.genreIds,
+  });
 
   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
 

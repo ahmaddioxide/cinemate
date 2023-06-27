@@ -6,12 +6,12 @@ part 'now_playing_movies_response_model.g.dart';
 
 @JsonSerializable()
 class NowPlayingMoviesResponse {
-  int page;
-  List<Movie> results;
+  final int page;
+  final List<Movie> results;
   @JsonKey(name: 'total_pages')
-  int totalPages;
+  final int totalPages;
   @JsonKey(name: 'total_results')
-  int totalResults;
+  final int totalResults;
   Map<String,String> dates;
 
   NowPlayingMoviesResponse(

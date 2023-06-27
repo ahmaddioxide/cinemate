@@ -6,12 +6,12 @@ part 'popular_movies_response_model.g.dart';
 
 @JsonSerializable()
 class PopularMoviesResponse {
-  int page;
-  List<Movie> results;
+  final int page;
+  final List<Movie> results;
   @JsonKey(name: 'total_pages')
-  int totalPages;
+  final int totalPages;
   @JsonKey(name: 'total_results')
-  int totalResults;
+  final int totalResults;
 
   PopularMoviesResponse(
       {required this.page,
