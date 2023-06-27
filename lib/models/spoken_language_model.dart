@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'spoken_language_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class SpokenLanguage {
   @JsonKey(name: 'english_name')
@@ -10,7 +12,7 @@ class SpokenLanguage {
   final  String iso6391;
   final  String name;
 
-  SpokenLanguage(
+  const SpokenLanguage(
       {required this.englishName, required this.iso6391, required this.name}
       );
 

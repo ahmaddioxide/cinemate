@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'genre_model.dart';
@@ -6,7 +7,7 @@ import 'production_country_model.dart';
 import 'spoken_language_model.dart';
 
 part 'movie_model.g.dart';
-
+@immutable
 @JsonSerializable()
 class Movie {
   final bool adult;
@@ -49,7 +50,7 @@ class Movie {
   @JsonKey(name: 'genre_ids')
   final List<int>? genreIds;
 
-  Movie({
+ const Movie({
     required this.adult,
     this.backdropPath,
     this.belongsToCollection,

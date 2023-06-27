@@ -1,15 +1,15 @@
+import 'dart:io';
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:cinemate/api/tmdb_api.dart';
 import 'package:cinemate/app_exception.dart';
-import 'package:http/http.dart' as http;
+
 
 class BaseClient {
   final String _baseUrl = TMDbApi.baseUrl;
   final String _apiKey = TMDbApi.apiKey;
-  static const TIME_OUT_DURATION = 20;
+  static const timeOutDuration = 20;
 
   Future<Map<String,dynamic>> get(String api) async {
     final url = '$_baseUrl$api&api_key=$_apiKey';
@@ -17,7 +17,7 @@ class BaseClient {
     try {
       final response = await http
           .get(Uri.parse(url))
-          .timeout(const Duration(seconds: TIME_OUT_DURATION));
+          .timeout(const Duration(seconds: timeOutDuration));
       return _processResponse(response);
     } on SocketException {
       throw FetchDataException(
@@ -26,7 +26,7 @@ class BaseClient {
       );
     } on TimeoutException {
       ApiNotRespondingException(
-          message: "API Not responded in $TIME_OUT_DURATION Seconds",
+          message: "API Not responded in $timeOutDuration Seconds",
           url: url.toString());
     }
     return {};

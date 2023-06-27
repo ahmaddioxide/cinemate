@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'production_company_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class ProductionCompany {
   final int id;
@@ -11,7 +13,7 @@ class ProductionCompany {
   @JsonKey(name: 'origin_country')
   final String originCountry;
 
-  ProductionCompany(
+ const ProductionCompany(
       {required this.id,
       required this.logoPath,
       required this.name,

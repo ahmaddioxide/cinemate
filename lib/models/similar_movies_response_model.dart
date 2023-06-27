@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'movie_model.dart';
 
 part 'similar_movies_response_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class SimilarMoviesResponse {
   final int page;
@@ -13,7 +15,7 @@ class SimilarMoviesResponse {
   @JsonKey(name: 'total_results')
   final int totalResults;
 
-  SimilarMoviesResponse(
+  const SimilarMoviesResponse(
       {required this.page,
         required this.results,
         required this.totalPages,

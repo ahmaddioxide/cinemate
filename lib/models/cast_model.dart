@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'cast_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class Cast {
   final int id;
@@ -22,7 +24,7 @@ class Cast {
   final String creditId;
   final int order;
 
-  Cast({
+   const Cast({
     required this.id,
     required this.adult,
     required this.gender,

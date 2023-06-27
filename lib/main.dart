@@ -1,5 +1,6 @@
 
 import 'package:cinemate/models/movie_credits_response_model.dart';
+import 'package:cinemate/models/movie_model.dart';
 import 'package:cinemate/repositories/popular_movies_repo.dart';
 
 import 'package:flutter/material.dart';
@@ -48,26 +49,13 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: FutureBuilder(
-          future: _httpPopularMoviesRepo.getPopularMovies(1),
-          builder: (context, AsyncSnapshot<List<dynamic>> snapshot){
-          if(snapshot.hasData)
-          {
-            return ListView.builder(itemBuilder: (context, index){
-              return ListTile(
-                title: Text(snapshot.data![index].title),
-                subtitle: Text(snapshot.data![index].overview),
-              );
-            },
-            itemCount: snapshot.data!.length,
-            );
-          }
-          else if(snapshot.hasError)
-          {
-            return Text(snapshot.error.toString());
-          }
-          return const CircularProgressIndicator();
-        },
-        ),
+            future: _httpPopularMoviesRepo.getTotalPages(),
+            builder: (
+          BuildContext context,
+          AsyncSnapshot snapshot,
+            ){
+          return Text(snapshot.data.toString());
+        }),
       ),
     );
   }

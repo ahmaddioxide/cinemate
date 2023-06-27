@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
+
 class AppException implements Exception {
   final String message;
   final String prefix;
   final String url;
-
-  AppException({
+AppException({
     required this.message,
     required this.prefix,
     required this.url,

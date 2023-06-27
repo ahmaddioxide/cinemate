@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'movie_model.dart';
 
 part 'trending_movies_response_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class TrendingMoviesResponse {
   final int page;
@@ -13,7 +15,7 @@ class TrendingMoviesResponse {
   @JsonKey(name: 'total_results')
   final int totalResults;
 
-  TrendingMoviesResponse(
+  const TrendingMoviesResponse(
       {required this.page,
         required this.results,
         required this.totalPages,

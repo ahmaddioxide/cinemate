@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'crew_model.g.dart';
 
+@immutable
 @JsonSerializable()
 class Crew {
   final int id;
@@ -20,7 +22,7 @@ class Crew {
   final String department;
   final String job;
 
-  Crew({
+  const Crew({
     required this.id,
     required this.adult,
     required this.gender,
