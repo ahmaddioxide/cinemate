@@ -56,7 +56,7 @@ ThemeData theme() {
           color: Colors.white,
         ),
         titleMedium:const TextStyle(
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.15,
           color: Colors.white,

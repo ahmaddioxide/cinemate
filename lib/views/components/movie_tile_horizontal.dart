@@ -57,7 +57,7 @@ class MovieTileHorizontal extends StatelessWidget {
                 children: [
                   FittedBox(
                     child: Text(
-                      movieName.length > 19 ? '${movieName.substring(0, 19)}...' : movieName,
+                      movieName.length > 20 ? '${movieName.substring(0, 20)}...' : movieName,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
