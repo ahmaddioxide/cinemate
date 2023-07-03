@@ -24,69 +24,71 @@ ThemeData theme() {
     useMaterial3: true,
     textTheme: GoogleFonts.robotoTextTheme(
         TextTheme(
-        displayLarge: TextStyle(
+        displayLarge: const TextStyle(
           fontSize: 93,
           fontWeight: FontWeight.w300,
           letterSpacing: -1.5,
         ),
-        displayMedium: TextStyle(
+        displayMedium: const TextStyle(
           fontSize: 58,
           fontWeight: FontWeight.w300,
           letterSpacing: -0.5,
         ),
-        displaySmall: TextStyle(
+        displaySmall:const  TextStyle(
           fontSize: 46,
           fontWeight: FontWeight.w400,
         ),
-        headlineMedium: TextStyle(
+        headlineMedium: const TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.25,
           color: Colors.white,
         ),
-        headlineSmall: TextStyle(
+        headlineSmall:const  TextStyle(
           fontSize: 23,
           fontWeight: FontWeight.w500,
           color: Colors.white,
         ),
-        titleLarge: TextStyle(
+        titleLarge:const TextStyle(
           fontSize: 23,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.15,
           color: Colors.white,
         ),
-        titleMedium: TextStyle(
+        titleMedium:const TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.15,
-          color: dark[200],
+          color: Colors.white,
+          // color: dark[200],
         ),
         titleSmall: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.1,
+          color: dark[200],
         ),
-        bodyLarge: TextStyle(
+        bodyLarge: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.5,
         ),
-        bodyMedium: TextStyle(
+        bodyMedium: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.25,
         ),
-        labelLarge: TextStyle(
+        labelLarge: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w500,
           letterSpacing: 1.25,
         ),
-        bodySmall: TextStyle(
+        bodySmall: const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
           letterSpacing: 0.4,
         ),
-        labelSmall: TextStyle(
+        labelSmall: const TextStyle(
           fontSize: 10,
           fontWeight: FontWeight.w400,
           letterSpacing: 1.5,

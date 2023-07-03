@@ -1,11 +1,29 @@
+import 'dart:io';
+
 import 'package:cinemate/repositories/popular_movies_repo.dart';
 import 'package:cinemate/views/theme.dart';
-import 'package:cinemate/views/trnding_movies_screen.dart';
-
+import 'package:cinemate/views/popular_movies_screen.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  ByteData data =
+      await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
+  SecurityContext.defaultContext
+      .setTrustedCertificatesBytes(data.buffer.asUint8List());
+
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const ProviderScope(
+        child: MyApp(),
+      ), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -15,23 +33,28 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      useInheritedMediaQuery: true,
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      title: 'CineMate',
       theme: theme(),
-      home:  const TrendingMoviesAll(),
+      home: const PopularMoviesAll(),
     );
   }
 }
+
 class MyHomePage extends StatelessWidget {
-   MyHomePage({super.key});
-  final HttpPopularMoviesRepo _httpPopularMoviesRepo=HttpPopularMoviesRepo();
+  MyHomePage({super.key});
+
+  final HttpPopularMoviesRepo _httpPopularMoviesRepo = HttpPopularMoviesRepo();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
-          onPressed: ()async{
-            final movies=await _httpPopularMoviesRepo.getPopularMovies(1);
+          onPressed: () async {
+            final movies = await _httpPopularMoviesRepo.getPopularMovies(1);
             print(movies);
           },
           child: const Text('Get Popular Movies'),
@@ -40,4 +63,3 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
-
