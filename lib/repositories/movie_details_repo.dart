@@ -1,5 +1,4 @@
 import 'package:cinemate/models/movie_model.dart';
-import 'package:cinemate/models/popular_movies_response_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
 import 'package:flutter/material.dart';
 
