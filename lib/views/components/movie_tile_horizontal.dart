@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cinemate/views/components/genre_chip_gery.dart';
 import 'package:cinemate/views/theme.dart';
 import 'package:flutter/material.dart';
@@ -55,10 +56,14 @@ class MovieTileHorizontal extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FittedBox(
+                  SizedBox(
+                    width: width * 0.58,
                     child: Text(
-                      movieName.length > 20 ? '${movieName.substring(0, 20)}...' : movieName,
+                      // movieName.length > 20 ? '${movieName.substring(0, 20)}...' : movieName,
+                      movieName,
                       style: Theme.of(context).textTheme.titleMedium,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Row(
