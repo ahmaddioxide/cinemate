@@ -256,7 +256,7 @@ class MovieDetailsScreen extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 10),
-                          ProductionCompaniesList(productionCompanies: movie.productionCompanies??[]),
+                          ProductionCompaniesList(productionCompanies: movie.productionCompanies ?? []),
                         ],
                       ),
                     ),

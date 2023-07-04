@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 @immutable
 class ProductionCompaniesList extends StatelessWidget {
-  List<ProductionCompany> productionCompanies;
+  final List<ProductionCompany> productionCompanies;
 
-  ProductionCompaniesList({super.key, required this.productionCompanies});
+ const ProductionCompaniesList({super.key, required this.productionCompanies});
 
   @override
   Widget build(BuildContext context) {
