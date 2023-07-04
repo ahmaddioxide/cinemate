@@ -15,11 +15,12 @@ class PopularMoviesResponse {
   @JsonKey(name: 'total_results')
   final int totalResults;
 
-  const PopularMoviesResponse(
-      {required this.page,
-      required this.results,
-      required this.totalPages,
-      required this.totalResults});
+  const PopularMoviesResponse({
+    required this.page,
+    required this.results,
+    required this.totalPages,
+    required this.totalResults,
+  });
 
   factory PopularMoviesResponse.fromJson(Map<String, dynamic> json) =>
       _$PopularMoviesResponseFromJson(json);

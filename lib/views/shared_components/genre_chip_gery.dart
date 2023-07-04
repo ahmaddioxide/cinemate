@@ -1,4 +1,4 @@
-import 'package:cinemate/views/theme.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class GenreChip extends StatelessWidget {
@@ -10,11 +10,11 @@ class GenreChip extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(13),
         color: dark[200],
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: 12,
+        horizontal: 10,
         vertical: 2,
       ),
       child: Center(
@@ -23,7 +23,7 @@ class GenreChip extends StatelessWidget {
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: 11,
+            fontSize: 10,
           ),
         ),
       ),

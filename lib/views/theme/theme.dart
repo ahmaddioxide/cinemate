@@ -9,7 +9,8 @@ ThemeData theme() {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: darkAccent,
+        foregroundColor: Colors.white,
+        backgroundColor: darkAccent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(13),
         ),
@@ -23,7 +24,7 @@ ThemeData theme() {
     scaffoldBackgroundColor: dark[500],
     useMaterial3: true,
     textTheme: GoogleFonts.robotoTextTheme(
-        TextTheme(
+      TextTheme(
         displayLarge: const TextStyle(
           fontSize: 93,
           fontWeight: FontWeight.w300,
@@ -34,7 +35,7 @@ ThemeData theme() {
           fontWeight: FontWeight.w300,
           letterSpacing: -0.5,
         ),
-        displaySmall:const  TextStyle(
+        displaySmall: const TextStyle(
           fontSize: 46,
           fontWeight: FontWeight.w400,
         ),
@@ -44,18 +45,18 @@ ThemeData theme() {
           letterSpacing: 0.25,
           color: Colors.white,
         ),
-        headlineSmall:const  TextStyle(
+        headlineSmall: const TextStyle(
           fontSize: 23,
           fontWeight: FontWeight.w500,
           color: Colors.white,
         ),
-        titleLarge:const TextStyle(
+        titleLarge: const TextStyle(
           fontSize: 23,
           fontWeight: FontWeight.w500,
           letterSpacing: 0.15,
           color: Colors.white,
         ),
-        titleMedium:const TextStyle(
+        titleMedium: const TextStyle(
           fontSize: 18,
           fontWeight: FontWeight.w600,
           letterSpacing: 0.15,
@@ -98,7 +99,7 @@ ThemeData theme() {
   );
 }
 
- const MaterialColor dark = MaterialColor(_darkPrimaryValue, <int, Color>{
+const MaterialColor dark = MaterialColor(_darkPrimaryValue, <int, Color>{
   50: Color(0xFFE5E6E6),
   100: Color(0xFFBEBFC1),
   200: Color(0xFF939598),
@@ -110,12 +111,12 @@ ThemeData theme() {
   800: Color(0xFF171A1E),
   900: Color(0xFF0E1013),
 });
- const int _darkPrimaryValue = 0xFF272B30;
+const int _darkPrimaryValue = 0xFF272B30;
 
- const MaterialColor darkAccent = MaterialColor(_darkAccentValue, <int, Color>{
+const MaterialColor darkAccent = MaterialColor(_darkAccentValue, <int, Color>{
   100: Color(0xFFEF233C),
   200: Color(_darkAccentValue),
   400: Color(0xFFEF233C),
   700: Color(0xFFEF233C),
 });
- const int _darkAccentValue = 0xFFEF233C;
+const int _darkAccentValue = 0xFFEF233C;

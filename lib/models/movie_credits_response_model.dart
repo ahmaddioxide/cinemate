@@ -13,11 +13,14 @@ class MovieCreditsResponse {
   final List<Cast> cast;
   final List<Crew> crew;
 
-  const MovieCreditsResponse({required this.id, required this.cast, required this.crew});
+  const MovieCreditsResponse({
+    required this.id,
+    required this.cast,
+    required this.crew,
+  });
 
-  factory MovieCreditsResponse.fromJson(Map<String, dynamic> json) => _$MovieCreditsResponseFromJson(json);
+  factory MovieCreditsResponse.fromJson(Map<String, dynamic> json) =>
+      _$MovieCreditsResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$MovieCreditsResponseToJson(this);
 }
-
-

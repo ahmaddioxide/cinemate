@@ -13,12 +13,12 @@ class ProductionCompany {
   @JsonKey(name: 'origin_country')
   final String originCountry;
 
- const ProductionCompany(
-      {required this.id,
-      required this.logoPath,
-      required this.name,
-      required this.originCountry}
-      );
+  const ProductionCompany({
+    required this.id,
+    required this.logoPath,
+    required this.name,
+    required this.originCountry,
+  });
 
   factory ProductionCompany.fromJson(Map<String, dynamic> json) =>
       _$ProductionCompanyFromJson(json);

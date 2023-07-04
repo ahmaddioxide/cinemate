@@ -14,15 +14,15 @@ class NowPlayingMoviesResponse {
   final int totalPages;
   @JsonKey(name: 'total_results')
   final int totalResults;
-  final Map<String,String> dates;
+  final Map<String, String> dates;
 
-  const NowPlayingMoviesResponse(
-      {required this.page,
-        required this.results,
-        required this.totalPages,
-        required this.totalResults,
-        required this.dates,
-      });
+  const NowPlayingMoviesResponse({
+    required this.page,
+    required this.results,
+    required this.totalPages,
+    required this.totalResults,
+    required this.dates,
+  });
 
   factory NowPlayingMoviesResponse.fromJson(Map<String, dynamic> json) =>
       _$NowPlayingMoviesResponseFromJson(json);

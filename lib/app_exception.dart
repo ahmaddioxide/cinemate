@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
-
 class AppException implements Exception {
   final String message;
   final String prefix;
   final String url;
-AppException({
+
+  AppException({
     required this.message,
     required this.prefix,
     required this.url,
@@ -14,22 +13,23 @@ AppException({
 class BadRequestException extends AppException {
   BadRequestException({
     required String? message,
-   required String? url,
+    required String? url,
   }) : super(
-    message: message ?? "Bad Request",
-    prefix: 'Bad Request',
-    url: url ?? "",
-  );
+          message: message ?? 'Bad Request',
+          prefix: 'Bad Request',
+          url: url ?? '',
+        );
 }
+
 class FetchDataException extends AppException {
   FetchDataException({
     String? message,
     String? url,
   }) : super(
-    message: message ?? "",
-    prefix: 'Unable to Process',
-    url: url ?? "",
-  );
+          message: message ?? '',
+          prefix: 'Unable to Process',
+          url: url ?? '',
+        );
 }
 
 class ApiNotRespondingException extends AppException {
@@ -37,10 +37,10 @@ class ApiNotRespondingException extends AppException {
     String? message,
     String? url,
   }) : super(
-    message: message ?? "",
-    prefix: 'Api Not Responding',
-    url: url ?? "",
-  );
+          message: message ?? '',
+          prefix: 'Api Not Responding',
+          url: url ?? '',
+        );
 }
 
 class UnAuthorizedException extends AppException {
@@ -48,8 +48,8 @@ class UnAuthorizedException extends AppException {
     String? message,
     String? url,
   }) : super(
-    message: message ?? "",
-    prefix: 'UnAuthorized Request',
-    url: url ?? "",
-  );
+          message: message ?? '',
+          prefix: 'UnAuthorized Request',
+          url: url ?? '',
+        );
 }

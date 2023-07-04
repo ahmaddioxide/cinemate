@@ -7,6 +7,7 @@ import 'production_country_model.dart';
 import 'spoken_language_model.dart';
 
 part 'movie_model.g.dart';
+
 @immutable
 @JsonSerializable()
 class Movie {
@@ -50,7 +51,7 @@ class Movie {
   @JsonKey(name: 'genre_ids')
   final List<int>? genreIds;
 
- const Movie({
+  const Movie({
     required this.adult,
     this.backdropPath,
     this.belongsToCollection,

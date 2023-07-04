@@ -30,7 +30,7 @@ class Crew {
     required this.name,
     required this.originalName,
     required this.popularity,
-     this.profilePath,
+    this.profilePath,
     required this.department,
     required this.creditId,
     required this.job,

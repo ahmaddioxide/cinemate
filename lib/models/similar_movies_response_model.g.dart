@@ -7,7 +7,8 @@ part of 'similar_movies_response_model.dart';
 // **************************************************************************
 
 SimilarMoviesResponse _$SimilarMoviesResponseFromJson(
-        Map<String, dynamic> json) =>
+  Map<String, dynamic> json,
+) =>
     SimilarMoviesResponse(
       page: json['page'] as int,
       results: (json['results'] as List<dynamic>)
@@ -18,7 +19,8 @@ SimilarMoviesResponse _$SimilarMoviesResponseFromJson(
     );
 
 Map<String, dynamic> _$SimilarMoviesResponseToJson(
-        SimilarMoviesResponse instance) =>
+  SimilarMoviesResponse instance,
+) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

@@ -24,7 +24,7 @@ class Cast {
   final String creditId;
   final int order;
 
-   const Cast({
+  const Cast({
     required this.id,
     required this.adult,
     required this.gender,
@@ -32,7 +32,7 @@ class Cast {
     required this.name,
     required this.originalName,
     required this.popularity,
-     this.profilePath,
+    this.profilePath,
     required this.castId,
     required this.character,
     required this.creditId,

@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:cinemate/repositories/popular_movies_repo.dart';
-import 'package:cinemate/views/theme.dart';
-import 'package:cinemate/views/popular_movies_screen.dart';
+import 'package:cinemate/views/theme/theme.dart';
+import 'package:cinemate/views/screens/popular_movies_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // ignore: deprecated_member_use
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
@@ -55,7 +56,7 @@ class MyHomePage extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             final movies = await _httpPopularMoviesRepo.getPopularMovies(1);
-            print(movies);
+            debugPrint(movies.toString());
           },
           child: const Text('Get Popular Movies'),
         ),

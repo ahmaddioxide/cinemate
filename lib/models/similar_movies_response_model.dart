@@ -15,11 +15,12 @@ class SimilarMoviesResponse {
   @JsonKey(name: 'total_results')
   final int totalResults;
 
-  const SimilarMoviesResponse(
-      {required this.page,
-        required this.results,
-        required this.totalPages,
-        required this.totalResults});
+  const SimilarMoviesResponse({
+    required this.page,
+    required this.results,
+    required this.totalPages,
+    required this.totalResults,
+  });
 
   factory SimilarMoviesResponse.fromJson(Map<String, dynamic> json) =>
       _$SimilarMoviesResponseFromJson(json);

@@ -15,11 +15,12 @@ class TrendingMoviesResponse {
   @JsonKey(name: 'total_results')
   final int totalResults;
 
-  const TrendingMoviesResponse(
-      {required this.page,
-        required this.results,
-        required this.totalPages,
-        required this.totalResults});
+  const TrendingMoviesResponse({
+    required this.page,
+    required this.results,
+    required this.totalPages,
+    required this.totalResults,
+  });
 
   factory TrendingMoviesResponse.fromJson(Map<String, dynamic> json) =>
       _$TrendingMoviesResponseFromJson(json);
