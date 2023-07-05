@@ -1,3 +1,4 @@
+import 'package:cinemate/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:cinemate/views/shared_components/genre_chip_gery.dart';
 import 'package:cinemate/views/theme/theme.dart';
@@ -44,7 +45,7 @@ class MovieCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: FadeInImage.assetNetwork(
-                    placeholder: 'assets/images/placeholder.png',
+                    placeholder: placeholder,
                     image: moviePoster,
                     fit: BoxFit.cover,
                     height: height * 0.3,

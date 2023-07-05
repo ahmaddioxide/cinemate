@@ -7,7 +7,7 @@ part of 'popular_movies_response_model.dart';
 // **************************************************************************
 
 PopularMoviesResponse _$PopularMoviesResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     PopularMoviesResponse(
       page: json['page'] as int,
       results: (json['results'] as List<dynamic>)
@@ -18,7 +18,7 @@ PopularMoviesResponse _$PopularMoviesResponseFromJson(
     );
 
 Map<String, dynamic> _$PopularMoviesResponseToJson(
-        PopularMoviesResponse instance) =>
+        PopularMoviesResponse instance,) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

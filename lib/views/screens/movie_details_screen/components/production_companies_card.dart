@@ -1,3 +1,4 @@
+import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/models/production_company_model.dart';
 import 'package:cinemate/services/process_image_link.dart';
 import 'package:cinemate/views/theme/theme.dart';
@@ -38,7 +39,7 @@ class ProductionCompaniesList extends StatelessWidget {
                     child: FadeInImage.assetNetwork(
                       width: width * 0.3,
                       height: height * 0.1,
-                      placeholder: 'assets/images/placeholder.png',
+                      placeholder: placeholder,
                       image: ProcessImage.processImageLink(
                         productionCompanies[index].logoPath,
                       ),

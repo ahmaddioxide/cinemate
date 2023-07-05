@@ -14,4 +14,11 @@ class ProcessImage {
 
     return 'https://image.tmdb.org/t/p/original$link';
   }
+  static String processProfileImageLink(link){
+    if (link == null) {
+      return 'https://www.pngitem.com/pimgs/m/277-2771393_png-grey-person-transparent-png.png';
+    }
+
+    return 'https://image.tmdb.org/t/p/w500$link';
+  }
 }
