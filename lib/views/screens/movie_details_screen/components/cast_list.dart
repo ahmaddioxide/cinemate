@@ -37,7 +37,8 @@ class CastList extends ConsumerWidget {
                     backgroundImage: FadeInImage.assetNetwork(
                       placeholder: placeholder,
                       image: ProcessImage.processProfileImageLink(
-                          credits.cast[index].profilePath),
+                        credits.cast[index].profilePath,
+                      ),
                     ).image,
                   ),
                   SizedBox(

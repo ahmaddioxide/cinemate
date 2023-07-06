@@ -2,8 +2,8 @@ import 'package:cinemate/providers/popular_movies_provider.dart';
 import 'package:cinemate/services/process_genre_code.dart';
 import 'package:cinemate/services/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-import 'package:cinemate/views/shared_components/page_indicator.dart';
 import 'package:cinemate/views/shared_components/movie_card.dart';
+import 'package:cinemate/views/shared_components/page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -75,7 +75,6 @@ class _PopularMoviesScreenState extends ConsumerState<PopularMoviesScreen> {
                           },
                         ),
                       ),
-
                       PageIndicator(
                         currentPage: popularMoviesResponse.page,
                         totalPages: popularMoviesResponse.totalPages,
@@ -87,8 +86,9 @@ class _PopularMoviesScreenState extends ConsumerState<PopularMoviesScreen> {
                           });
                         },
                         scrollController: ScrollController(
-                          initialScrollOffset: (popularMoviesResponse.page - 1) *
-                              (width * 0.07 + width * 0.01),
+                          initialScrollOffset:
+                              (popularMoviesResponse.page - 1) *
+                                  (width * 0.07 + width * 0.01),
                         ),
                       ),
                     ],

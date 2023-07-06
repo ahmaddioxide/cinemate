@@ -35,7 +35,8 @@ class CrewList extends ConsumerWidget {
                     backgroundImage: FadeInImage.assetNetwork(
                       placeholder: placeholder,
                       image: ProcessImage.processProfileImageLink(
-                          credits.crew[index].profilePath),
+                        credits.crew[index].profilePath,
+                      ),
                     ).image,
                   ),
                   SizedBox(
