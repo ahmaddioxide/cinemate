@@ -43,47 +43,47 @@ class MovieTileWithRating extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 10),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: width * 0.62,
-              child: Text(
+        SizedBox(
+          width: width * 0.62,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
                 originalTitle,
                 style: Theme.of(context).textTheme.titleLarge,
                 maxLines: 2,
               ),
-            ),
-            SizedBox(
-              height: height * 0.001,
-            ),
-            SizedBox(
-              width: width * 0.62,
-              child: Text(
-                tagline ?? '',
-                style: Theme.of(context).textTheme.titleMedium,
-                maxLines: 3,
+              SizedBox(
+                height: height * 0.001,
               ),
-            ),
-            SizedBox(
-              height: height * 0.001,
-            ),
-            Text(
-              ProcessGenre.processGenreList(genres),
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            SizedBox(
-              height: height * 0.001,
-            ),
-            Text(
-              releaseDate ?? '',
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            SizedBox(
-              width: width * 0.62,
-              height: height * 0.03,
-              child: Row(
+              Visibility(
+                visible: tagline != null,
+                child: SizedBox(
+                  width: width * 0.62,
+                  child: Text(
+                    tagline ?? '',
+                    style: Theme.of(context).textTheme.titleMedium,
+                    maxLines: 3,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.001,
+              ),
+              Text(
+                ProcessGenre.processGenreList(genres),
+                style: Theme.of(context).textTheme.titleSmall,
+                maxLines: 2,
+              ),
+              SizedBox(
+                height: height * 0.001,
+              ),
+              Text(
+                releaseDate ?? '',
+                style: Theme.of(context).textTheme.titleSmall,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -111,8 +111,8 @@ class MovieTileWithRating extends StatelessWidget {
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         )
       ],
     );

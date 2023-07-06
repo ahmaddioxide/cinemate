@@ -2,12 +2,11 @@ import 'package:cinemate/models/movie_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
 import 'package:flutter/material.dart';
 
-abstract class MovieDetails {
-  Future<Movie>  getMovieDetails(int id);
+abstract class MovieDetailsRepo {
+  Future<Movie> getMovieDetails(int id);
 }
 
-class HttpMovieDetails implements MovieDetails {
-
+class HttpMovieDetails implements MovieDetailsRepo {
   @override
   Future<Movie> getMovieDetails(int id) async {
     Movie movie;
@@ -17,6 +16,4 @@ class HttpMovieDetails implements MovieDetails {
     movie = Movie.fromJson(response);
     return movie;
   }
-
-
 }
