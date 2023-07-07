@@ -7,7 +7,7 @@ part of 'now_playing_movies_response_model.dart';
 // **************************************************************************
 
 NowPlayingMoviesResponse _$NowPlayingMoviesResponseFromJson(
-        Map<String, dynamic> json,) =>
+        Map<String, dynamic> json) =>
     NowPlayingMoviesResponse(
       page: json['page'] as int,
       results: (json['results'] as List<dynamic>)
@@ -19,7 +19,7 @@ NowPlayingMoviesResponse _$NowPlayingMoviesResponseFromJson(
     );
 
 Map<String, dynamic> _$NowPlayingMoviesResponseToJson(
-        NowPlayingMoviesResponse instance,) =>
+        NowPlayingMoviesResponse instance) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

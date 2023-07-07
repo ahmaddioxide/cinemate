@@ -11,6 +11,28 @@ class BaseClient {
   final String _apiKey = TMDbApi.apiKey;
   static const timeOutDuration = 20;
 
+
+  Future<Map<String, dynamic>> getHomeFromMovieDB() async {
+    const url = 'https://moviedb.cyclic.app/api/v1/home';
+    try {
+      final response = await http
+          .get(Uri.parse(url))
+          .timeout(const Duration(seconds: timeOutDuration));
+      return _processResponse(response);
+    } on SocketException {
+      throw FetchDataException(
+        message: 'NO Internet Connection',
+        url: url.toString(),
+      );
+    } on TimeoutException {
+      ApiNotRespondingException(
+        message: 'API Not responded in $timeOutDuration Seconds',
+        url: url.toString(),
+      );
+    }
+    return {};
+  }
+
   Future<Map<String, dynamic>> get(String api) async {
     final url = '$_baseUrl$api&api_key=$_apiKey';
     // print(url);

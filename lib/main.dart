@@ -1,6 +1,5 @@
 import 'dart:io';
-import 'package:cinemate/views/screens/now_playing_movies_screen/now_playing_movies_screen.dart';
-import 'package:cinemate/views/screens/trending_movies_screen/trending_movies_screen.dart';
+import 'package:cinemate/views/screens/home_screen/home_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -40,7 +39,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'CineMate',
       theme: theme(),
-      home: const NowPlayingMoviesScreen(),
+      home: const HomeScreen(),
     );
   }
 }

@@ -12,21 +12,21 @@ import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen
 
 
 
-class PopularMoviesScreen extends ConsumerStatefulWidget {
-  const PopularMoviesScreen({super.key});
+class TopRatedMoviesScreen extends ConsumerStatefulWidget {
+  const TopRatedMoviesScreen({super.key});
 
   @override
-  ConsumerState<PopularMoviesScreen> createState() =>
-      _PopularMoviesScreenState();
+  ConsumerState<TopRatedMoviesScreen> createState() =>
+      _TopRatedMoviesScreenState();
 }
 
-class _PopularMoviesScreenState extends ConsumerState<PopularMoviesScreen> {
+class _TopRatedMoviesScreenState extends ConsumerState<TopRatedMoviesScreen> {
   int pageNumber = 1;
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    final moviesProvider = ref.watch(popularMoviesProvider(pageNumber));
+    final moviesProvider = ref.watch(topRatedMoviesProvider(pageNumber));
 
     return Scaffold(
       appBar: AppBar(
