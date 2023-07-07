@@ -2,11 +2,11 @@ import 'package:cinemate/models/now_playing_movies_response_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
 import 'package:flutter/material.dart';
 
-abstract class PopularMoviesRepo {
+abstract class NowPlayingMoviesRepo {
   Future<NowPlayingMoviesResponse> getNowPlayingMoviesResponse([int page = 1]);
 }
 
-class HttpNowPlayingMoviesRepo implements PopularMoviesRepo {
+class HttpNowPlayingMoviesRepo implements NowPlayingMoviesRepo {
   @override
   Future<NowPlayingMoviesResponse> getNowPlayingMoviesResponse(
       [int page = 1]) async {
