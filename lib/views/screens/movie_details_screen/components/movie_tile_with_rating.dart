@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/models/genre_model.dart';
 import 'package:cinemate/services/process_genre_list.dart';
 import 'package:cinemate/services/process_image_link.dart';
@@ -25,6 +26,8 @@ class MovieTileWithRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme=context.textTheme();
+
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     return Row(
@@ -51,7 +54,7 @@ class MovieTileWithRating extends StatelessWidget {
             children: [
               Text(
                 originalTitle,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: textTheme.titleLarge,
                 maxLines: 2,
               ),
               SizedBox(
@@ -63,7 +66,7 @@ class MovieTileWithRating extends StatelessWidget {
                   width: width * 0.62,
                   child: Text(
                     tagline ?? '',
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: textTheme.titleMedium,
                     maxLines: 3,
                   ),
                 ),
@@ -73,7 +76,7 @@ class MovieTileWithRating extends StatelessWidget {
               ),
               Text(
                 ProcessGenre.processGenreList(genres),
-                style: Theme.of(context).textTheme.titleSmall,
+                style: textTheme.titleSmall,
                 maxLines: 2,
               ),
               SizedBox(
@@ -81,7 +84,7 @@ class MovieTileWithRating extends StatelessWidget {
               ),
               Text(
                 releaseDate ?? '',
-                style: Theme.of(context).textTheme.titleSmall,
+                style: textTheme.titleSmall,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,

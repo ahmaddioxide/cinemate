@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/models/movie_credits_response_model.dart';
 import 'package:cinemate/providers/movie_credits_provider.dart';
 import 'package:cinemate/services/process_image_link.dart';
@@ -14,6 +15,7 @@ class CrewList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final movieCreditProvider = ref.watch(movieCreditsProvider(movieId));
+    final textTheme=context.textTheme();
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
     return movieCreditProvider.when(
@@ -47,7 +49,7 @@ class CrewList extends ConsumerWidget {
                     credits.crew[index].name.length > 15
                         ? '${credits.crew[index].name.substring(0, 15)}...'
                         : credits.crew[index].name,
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: textTheme.titleSmall,
                     maxLines: 2,
                   ),
                   SizedBox(
@@ -61,7 +63,7 @@ class CrewList extends ConsumerWidget {
                     credits.crew[index].job.length > 15
                         ? '${credits.crew[index].job.substring(0, 15)}...'
                         : credits.crew[index].job,
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: textTheme.titleSmall,
                   ),
                 ],
               ),

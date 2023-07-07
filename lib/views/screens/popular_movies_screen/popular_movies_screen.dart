@@ -1,12 +1,16 @@
-import 'package:cinemate/providers/popular_movies_provider.dart';
-import 'package:cinemate/services/process_genre_code.dart';
-import 'package:cinemate/services/process_image_link.dart';
-import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-import 'package:cinemate/views/shared_components/movie_card.dart';
-import 'package:cinemate/views/shared_components/page_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import 'package:cinemate/providers/popular_movies_provider.dart';
+import 'package:cinemate/services/process_genre_code.dart';
+import 'package:cinemate/services/process_image_link.dart';
+
+import 'package:cinemate/views/components_shared/movie_card.dart';
+import 'package:cinemate/views/components_shared/page_indicator.dart';
+import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
+
+
 
 class PopularMoviesScreen extends ConsumerStatefulWidget {
   const PopularMoviesScreen({super.key});

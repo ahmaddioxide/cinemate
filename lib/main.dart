@@ -1,12 +1,12 @@
 import 'dart:io';
-
-import 'package:cinemate/views/screens/popular_movie_screen/popular_movies_screen.dart';
-import 'package:cinemate/views/theme/theme.dart';
-import 'package:device_preview/device_preview.dart';
+import 'package:cinemate/views/screens/trending_movies_screen/trending_movies_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:cinemate/views/theme/theme.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'CineMate',
       theme: theme(),
-      home: const PopularMoviesScreen(),
+      home: const TrendingMoviesScreen(),
     );
   }
 }

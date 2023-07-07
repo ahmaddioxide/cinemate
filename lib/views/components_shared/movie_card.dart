@@ -1,6 +1,6 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/views/components_shared/genre_chip_gery.dart';
 import 'package:flutter/material.dart';
-import 'package:cinemate/views/shared_components/genre_chip_gery.dart';
 import 'package:cinemate/views/theme/theme.dart';
 
 class MovieCard extends StatelessWidget {
@@ -27,10 +27,10 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: InkWell(
+        onTap: onTap,
         child: Container(
           height: height * 0.3,
           width: width,

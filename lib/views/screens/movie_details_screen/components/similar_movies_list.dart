@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/providers/similar_movies_provider.dart';
 import 'package:cinemate/services/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
@@ -68,7 +69,7 @@ class SimilarMoviesList extends ConsumerWidget {
                         child: Text(
                           movies[index].title,
                           maxLines: 2,
-                          style: Theme.of(context).textTheme.titleSmall,
+                          style:     context.textTheme().titleSmall,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),

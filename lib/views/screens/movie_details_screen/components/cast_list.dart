@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/models/movie_credits_response_model.dart';
 import 'package:cinemate/providers/movie_credits_provider.dart';
 import 'package:cinemate/services/process_image_link.dart';
@@ -14,7 +15,7 @@ class CastList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final movieCreditProvider = ref.watch(movieCreditsProvider(movieId));
-
+    final textTheme=context.textTheme();
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
@@ -49,7 +50,7 @@ class CastList extends ConsumerWidget {
                     credits.cast[index].name.length > 15
                         ? '${credits.cast[index].name.substring(0, 15)}...'
                         : credits.cast[index].name,
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: textTheme.titleSmall,
                     maxLines: 2,
                   ),
                   SizedBox(
@@ -63,7 +64,7 @@ class CastList extends ConsumerWidget {
                     credits.cast[index].character.length > 15
                         ? '${credits.cast[index].character.substring(0, 15)}...'
                         : credits.cast[index].character,
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: textTheme.titleSmall,
                   ),
                 ],
               ),
@@ -74,7 +75,7 @@ class CastList extends ConsumerWidget {
       error: (e, _) => Center(
         child: Text(
           'Something went wrong',
-          style: Theme.of(context).textTheme.titleMedium,
+          style: textTheme.titleMedium,
         ),
       ),
       loading: () => const Center(
