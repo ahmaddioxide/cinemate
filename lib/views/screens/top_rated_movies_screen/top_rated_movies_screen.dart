@@ -1,37 +1,28 @@
+import 'package:cinemate/providers/page_number_providers.dart';
+import 'package:cinemate/providers/trending_movies_provider.dart';
+import 'package:cinemate/services/process_genre_code.dart';
+import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/views/components_shared/movie_card.dart';
+import 'package:cinemate/views/components_shared/page_indicator.dart';
+import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'package:cinemate/providers/popular_movies_provider.dart';
-import 'package:cinemate/services/process_genre_code.dart';
-import 'package:cinemate/services/process_image_link.dart';
-
-import 'package:cinemate/views/components_shared/movie_card.dart';
-import 'package:cinemate/views/components_shared/page_indicator.dart';
-import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-
-
-
-class TopRatedMoviesScreen extends ConsumerStatefulWidget {
+class TopRatedMoviesScreen extends ConsumerWidget {
   const TopRatedMoviesScreen({super.key});
 
   @override
-  ConsumerState<TopRatedMoviesScreen> createState() =>
-      _TopRatedMoviesScreenState();
-}
-
-class _TopRatedMoviesScreenState extends ConsumerState<TopRatedMoviesScreen> {
-  int pageNumber = 1;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.sizeOf(context).width;
-    final moviesProvider = ref.watch(topRatedMoviesProvider(pageNumber));
+    final pageNumber = ref.watch(topRatedMoviesNumberProvider);
 
+    final moviesProvider =
+        ref.watch(trendingMoviesProvider(pageNumber.toInt()));
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Popular Movies',
+          'Top Rated Movies',
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         centerTitle: true,
@@ -82,12 +73,10 @@ class _TopRatedMoviesScreenState extends ConsumerState<TopRatedMoviesScreen> {
                       PageIndicator(
                         currentPage: popularMoviesResponse.page,
                         totalPages: popularMoviesResponse.totalPages,
-                        onTap: (
-                          int pageClicked,
-                        ) {
-                          setState(() {
-                            pageNumber = pageClicked;
-                          });
+                        onTap: (int pageClicked) {
+                          ref
+                              .read(topRatedMoviesNumberProvider.notifier)
+                              .setPageNumber(pageClicked);
                         },
                         scrollController: ScrollController(
                           initialScrollOffset:

@@ -12,3 +12,10 @@ final nowPlayingMoviesProvider = FutureProvider.autoDispose
   final nowPlayingMoviesRepo = ref.watch(popularMoviesRepoProvider);
   return nowPlayingMoviesRepo.getNowPlayingMoviesResponse(start);
 });
+
+
+
+
+
+
+

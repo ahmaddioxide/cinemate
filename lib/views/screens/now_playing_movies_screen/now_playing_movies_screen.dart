@@ -1,4 +1,5 @@
 import 'package:cinemate/providers/now_playing_movies_provider.dart';
+import 'package:cinemate/providers/page_number_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -11,22 +12,14 @@ import 'package:cinemate/views/components_shared/page_indicator.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
 
 
-
-class NowPlayingMoviesScreen extends ConsumerStatefulWidget {
+class NowPlayingMoviesScreen extends ConsumerWidget {
   const NowPlayingMoviesScreen({super.key});
 
   @override
-  ConsumerState<NowPlayingMoviesScreen> createState() =>
-      _NowPlayingMoviesScreenState();
-}
-
-class _NowPlayingMoviesScreenState extends ConsumerState<NowPlayingMoviesScreen> {
-  int pageNumber = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final moviesProvider = ref.watch(nowPlayingMoviesProvider(pageNumber));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final width = MediaQuery.of(context).size.width;
+    final pageNumber = ref.watch(nowPlayingMoviesPageNumberProvider);
+    final moviesProvider = ref.watch(nowPlayingMoviesProvider(pageNumber.toInt()));
 
     return Scaffold(
       appBar: AppBar(
@@ -37,10 +30,7 @@ class _NowPlayingMoviesScreenState extends ConsumerState<NowPlayingMoviesScreen>
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: width * 0.02,
-          // vertical: height * 0.001,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: width * 0.02),
         child: SizedBox(
           width: double.infinity,
           child: Column(
@@ -82,12 +72,8 @@ class _NowPlayingMoviesScreenState extends ConsumerState<NowPlayingMoviesScreen>
                       PageIndicator(
                         currentPage: popularMoviesResponse.page,
                         totalPages: popularMoviesResponse.totalPages,
-                        onTap: (
-                            int pageClicked,
-                            ) {
-                          setState(() {
-                            pageNumber = pageClicked;
-                          });
+                        onTap: (int pageClicked) {
+                          ref.read(nowPlayingMoviesPageNumberProvider.notifier).setPageNumber(pageClicked);
                         },
                         scrollController: ScrollController(
                           initialScrollOffset:
@@ -99,7 +85,7 @@ class _NowPlayingMoviesScreenState extends ConsumerState<NowPlayingMoviesScreen>
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong ',
+                      'Something went wrong',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
@@ -119,116 +105,5 @@ class _NowPlayingMoviesScreenState extends ConsumerState<NowPlayingMoviesScreen>
   }
 }
 
-// class PopularMoviesAll extends ConsumerWidget {
-//   final int pageNumber;
-//
-//   const PopularMoviesAll({super.key, required this.pageNumber});
-//
-//   @override
-//   // Widget build(BuildContext context, WidgetRef ref) {
-//   //   final width = MediaQuery.sizeOf(context).width;
-//   //   final moviesProvider = ref.watch(popularMoviesProvider(pageNumber));
-//   //
-//   //   return Scaffold(
-//   //     appBar: AppBar(
-//   //       title: Text(
-//   //         'Popular Movies',
-//   //         style: Theme.of(context).textTheme.headlineSmall,
-//   //       ),
-//   //       centerTitle: true,
-//   //     ),
-//   //     body: Padding(
-//   //       padding: EdgeInsets.symmetric(
-//   //         horizontal: width * 0.02,
-//   //         // vertical: height * 0.001,
-//   //       ),
-//   //       child: SizedBox(
-//   //         width: double.infinity,
-//   //         child: Column(
-//   //           children: [
-//   //             Expanded(
-//   //               child: moviesProvider.when(
-//   //                 data: (popularMoviesResponse) => Column(
-//   //                   children: [
-//   //                     Expanded(
-//   //                       child: ListView.builder(
-//   //                         itemCount: popularMoviesResponse.results.length,
-//   //                         itemBuilder: (context, i) {
-//   //                           final movie = popularMoviesResponse.results[i];
-//   //                           return MovieCard(
-//   //                             movieName: movie.title,
-//   //                             moviePoster: ProcessImage.processImageLink(
-//   //                               movie.posterPath,
-//   //                             ),
-//   //                             movieReleaseDate: movie.releaseDate.toString(),
-//   //                             movieRating: movie.voteAverage.toString(),
-//   //                             movieGenres: ProcessGenreCode.processGenreCodes(
-//   //                               movie.genreIds,
-//   //                             ),
-//   //                             movieOverview: movie.overview,
-//   //                             onTap: () {
-//   //                               Navigator.push(
-//   //                                 context,
-//   //                                 MaterialPageRoute(
-//   //                                   builder: (context) => MovieDetailsScreen(
-//   //                                     movieId: movie.id,
-//   //                                   ),
-//   //                                 ),
-//   //                               );
-//   //                             },
-//   //                           );
-//   //                         },
-//   //                       ),
-//   //                     ),
-//   //
-//   //                     ElevatedButton(
-//   //                         onPressed: () {
-//   //                           // po.refresh();
-//   //                           // Navigator.pushReplacement(
-//   //                           //   context,
-//   //                           //   MaterialPageRoute(
-//   //                           //     builder: (context) => PopularMoviesAll(
-//   //                           //       pageNumber: pageNumber + 1,
-//   //                           //     ),
-//   //                           //   ),
-//   //                           // );
-//   //                         },
-//   //                         child: const Text('Next Page')),
-//   //                     // PageIndicator(
-//   //                     //   currentPage: popularMoviesResponse.page,
-//   //                     //   totalPages: popularMoviesResponse.totalPages,
-//   //                     //   onTap: (
-//   //                     //     int pageClicked,
-//   //                     //   ) {
-//   //                     //     Navigator.pushReplacement(
-//   //                     //       context,
-//   //                     //       MaterialPageRoute(
-//   //                     //         builder: (context) => PopularMoviesAll(
-//   //                     //           pageNumber: pageClicked,
-//   //                     //         ),
-//   //                     //       ),
-//   //                     //     );},
-//   //                     // ),
-//   //                   ],
-//   //                 ),
-//   //                 error: (e, _) => Center(
-//   //                   child: Text(
-//   //                     'Something went wrong',
-//   //                     style: Theme.of(context).textTheme.titleMedium,
-//   //                   ),
-//   //                 ),
-//   //                 loading: () => const Center(
-//   //                   child: SpinKitThreeBounce(
-//   //                     color: Colors.white,
-//   //                     size: 30,
-//   //                   ),
-//   //                 ),
-//   //               ),
-//   //             ),
-//   //           ],
-//   //         ),
-//   //       ),
-//   //     ),
-//   //   );
-//   // }
-// }
+
+

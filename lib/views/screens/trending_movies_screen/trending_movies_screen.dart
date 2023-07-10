@@ -1,3 +1,4 @@
+import 'package:cinemate/providers/page_number_providers.dart';
 import 'package:cinemate/providers/trending_movies_provider.dart';
 import 'package:cinemate/services/process_genre_code.dart';
 import 'package:cinemate/services/process_image_link.dart';
@@ -8,22 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-
-class TrendingMoviesScreen extends ConsumerStatefulWidget {
+class TrendingMoviesScreen extends ConsumerWidget {
   const TrendingMoviesScreen({super.key});
 
   @override
-  ConsumerState<TrendingMoviesScreen> createState() =>
-      _TrendingMoviesScreenState();
-}
-
-class _TrendingMoviesScreenState extends ConsumerState<TrendingMoviesScreen> {
-  int pageNumber = 1;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.sizeOf(context).width;
-    final moviesProvider = ref.watch(trendingMoviesProvider(pageNumber));
+    final pageNumber = ref.watch(trendingMoviesPageNumberProvider);
+
+    final moviesProvider =
+        ref.watch(trendingMoviesProvider(pageNumber.toInt()));
 
     return Scaffold(
       appBar: AppBar(
@@ -79,17 +74,15 @@ class _TrendingMoviesScreenState extends ConsumerState<TrendingMoviesScreen> {
                       PageIndicator(
                         currentPage: trendingMoviesResponse.page,
                         totalPages: trendingMoviesResponse.totalPages,
-                        onTap: (
-                            int pageClicked,
-                            ) {
-                          setState(() {
-                            pageNumber = pageClicked;
-                          });
+                        onTap: (int pageClicked) {
+                          ref
+                              .read(trendingMoviesPageNumberProvider.notifier)
+                              .setPageNumber(pageClicked);
                         },
                         scrollController: ScrollController(
                           initialScrollOffset:
-                          (trendingMoviesResponse.page - 1) *
-                              (width * 0.07 + width * 0.01),
+                              (trendingMoviesResponse.page - 1) *
+                                  (width * 0.07 + width * 0.01),
                         ),
                       ),
                     ],

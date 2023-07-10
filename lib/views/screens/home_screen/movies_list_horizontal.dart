@@ -68,7 +68,7 @@ class HorizontalMoviesList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          movie.title+"jhsfgkgfkdgkfdsnjgdfskgnjfd  grdhtuktyukyuj",
+                          movie.title,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
