@@ -1,14 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'trending_movies_response_model.dart';
+part of 'movies_with_genres_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TrendingMoviesResponse _$TrendingMoviesResponseFromJson(
+PopularMoviesWithGenresResponse _$PopularMoviesWithGenresResponseFromJson(
         Map<String, dynamic> json,) =>
-    TrendingMoviesResponse(
+    PopularMoviesWithGenresResponse(
       page: json['page'] as int,
       results: (json['results'] as List<dynamic>)
           .map((e) => Movie.fromJson(e as Map<String, dynamic>))
@@ -17,8 +17,8 @@ TrendingMoviesResponse _$TrendingMoviesResponseFromJson(
       totalResults: json['total_results'] as int,
     );
 
-Map<String, dynamic> _$TrendingMoviesResponseToJson(
-        TrendingMoviesResponse instance,) =>
+Map<String, dynamic> _$PopularMoviesWithGenresResponseToJson(
+        PopularMoviesWithGenresResponse instance,) =>
     <String, dynamic>{
       'page': instance.page,
       'results': instance.results,

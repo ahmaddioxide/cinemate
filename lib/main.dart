@@ -1,18 +1,19 @@
 import 'dart:io';
+
 import 'package:cinemate/views/screens/home_screen/home_screen.dart';
+import 'package:cinemate/views/theme/theme.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:cinemate/views/theme/theme.dart';
 
+import 'views/screens/popular_movies_with_genres/genres_selection_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   ByteData data =
-
-  await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
+      await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
   SecurityContext.defaultContext
       .setTrustedCertificatesBytes(data.buffer.asUint8List());
   runApp(
@@ -39,8 +40,7 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: 'CineMate',
       theme: theme(),
-      home: const HomeScreen(),
+      home:  const GenreSelectionScreen(),
     );
   }
 }
-
