@@ -87,7 +87,7 @@ class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong $e',
+                      'Something went wrong',
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
