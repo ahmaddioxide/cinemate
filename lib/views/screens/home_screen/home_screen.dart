@@ -1,7 +1,10 @@
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/models/home_response_model.dart';
 import 'package:cinemate/providers/home_screen_provider.dart';
 import 'package:cinemate/views/screens/home_screen/movies_list_horizontal.dart';
 import 'package:cinemate/views/screens/now_playing_movies_screen/now_playing_movies_screen.dart';
+import 'package:cinemate/views/screens/popular_movies_with_genres/genres_selection_screen.dart';
+import 'package:cinemate/views/screens/search_movies_with_keywords_screen/search_movies_with_keywords_screen.dart';
 import 'package:cinemate/views/screens/top_rated_movies_screen/top_rated_movies_screen.dart';
 import 'package:cinemate/views/screens/trending_movies_screen/trending_movies_screen.dart';
 import 'package:cinemate/views/theme/theme.dart';
@@ -21,6 +24,20 @@ class HomeScreen extends ConsumerWidget {
     final homeScreenProviderResponse = ref.watch(homeScreenProvider);
 
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const GenreSelectionScreen(),
+            ),
+          );
+        },
+        label: Text(
+          'Genres',
+          style: context.textTheme().titleMedium!.copyWith(color: darkAccent),
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: width * 0.03,
@@ -53,12 +70,22 @@ class HomeScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
-//searchBar
                 const SizedBox(
                   height: 20,
                 ),
                 TextFormField(
-                  onFieldSubmitted: (value) {},
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                      ),
+                  onFieldSubmitted: (value) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            SearchMoviesWithKeywordsScreen(keywords: value),
+                      ),
+                    );
+                  },
                   decoration: InputDecoration(
                     hintText: 'Search Movies',
                     hintStyle:
@@ -71,17 +98,9 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     filled: true,
                     fillColor: Colors.grey[800],
-                    enabledBorder: OutlineInputBorder(
+                    border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Colors.grey[800]!,
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(
-                        color: Colors.grey[800]!,
-                      ),
+                      borderSide: BorderSide.none,
                     ),
                   ),
                 ),

@@ -25,3 +25,8 @@ final popularMoviesWithGenresPageNumberProvider =
     StateNotifierProvider<PageNumberNotifier, int>(
   (ref) => PageNumberNotifier(),
 );
+
+final searchMoviesWithKeywordsPageNumberProvider=
+    StateNotifierProvider<PageNumberNotifier, int>(
+  (ref) => PageNumberNotifier(),
+);

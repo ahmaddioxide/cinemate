@@ -26,8 +26,8 @@ final Map<String, int> movieGenres = {
 };
 
 final selectedGenresProvider =
-StateNotifierProvider<SelectedGenresNotifier, List<int>>(
-      (ref) => SelectedGenresNotifier(),
+    StateNotifierProvider<SelectedGenresNotifier, List<int>>(
+  (ref) => SelectedGenresNotifier(),
 );
 
 class GenreSelectionScreen extends ConsumerWidget {
@@ -41,7 +41,12 @@ class GenreSelectionScreen extends ConsumerWidget {
       appBar: AppBar(
         title: const Text('Genre Selection'),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
+        ),
         itemCount: movieGenres.length,
         itemBuilder: (context, index) {
           final genreName = movieGenres.keys.elementAt(index);
@@ -50,25 +55,49 @@ class GenreSelectionScreen extends ConsumerWidget {
 
           return Card(
             color: isSelected ? darkAccent : null,
-            child: ListTile(
-              title: Text(
-                genreName,
-                style: TextStyle(color: isSelected ? Colors.white : null),
-              ),
-              trailing: isSelected
-                  ? const Icon(Icons.check, color: Colors.white)
-                  : null,
+
+            child: InkWell(
               onTap: () {
-                ref.read(selectedGenresProvider.notifier).toggleGenre(genreCode);
+                ref
+                    .read(selectedGenresProvider.notifier)
+                    .toggleGenre(genreCode);
               },
+              child: Center(
+                child: Text(
+                  genreName,
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: isSelected ? Colors.white : null),
+                ),
+              ),
             ),
+            // child: ListTile(
+            //   title: Text(
+            //     genreName,
+            //     style: TextStyle(color: isSelected ? Colors.white : null),
+            //   ),
+            //   trailing: isSelected
+            //       ? const Icon(Icons.check, color: Colors.white)
+            //       : null,
+            //   onTap: () {
+            //     ref.read(selectedGenresProvider.notifier).toggleGenre(genreCode);
+            //   },
+            // ),
           );
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           debugPrint(selectedGenres.toString());
-          Navigator.push(context, MaterialPageRoute(builder: (context) => PopularMoviesWithGenresScreen(genreIds: selectedGenres,),),);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PopularMoviesWithGenresScreen(
+                genreIds: selectedGenres,
+              ),
+            ),
+          );
         },
         label: const Text(
           'Continue',
@@ -91,4 +120,3 @@ class SelectedGenresNotifier extends StateNotifier<List<int>> {
     }
   }
 }
-
