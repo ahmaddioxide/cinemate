@@ -1,8 +1,7 @@
 
-
+import 'package:flutter/material.dart';
 import 'package:cinemate/models/home_response_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
-import 'package:flutter/material.dart';
 
 abstract class HomeScreenRepo {
   Future<HomeScreenResponse> getHomeScreenResponse();

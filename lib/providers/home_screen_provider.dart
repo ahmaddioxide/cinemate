@@ -1,7 +1,6 @@
-
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemate/models/home_response_model.dart';
 import 'package:cinemate/repositories/home_screen_repo.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final homeScreenRepoProvider = Provider<HomeScreenRepo>((ref) {
   return HttpHomeScreenResponse();

@@ -1,4 +1,3 @@
-
 import 'package:cinemate/models/search_movie_with_keyword_response_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
 

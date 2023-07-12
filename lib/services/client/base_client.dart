@@ -1,10 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
+import 'package:http/http.dart' as http;
 import 'package:cinemate/helpers/app_exception.dart';
 import 'package:cinemate/constants/api/tmdb_api.dart';
-import 'package:http/http.dart' as http;
 
 class BaseClient {
   final String _baseUrl = TMDbApi.baseUrl;

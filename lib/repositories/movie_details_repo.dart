@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:cinemate/models/movie_model.dart';
 import 'package:cinemate/services/client/base_client.dart';
-import 'package:flutter/material.dart';
 
 abstract class MovieDetailsRepo {
   Future<Movie> getMovieDetails(int id);
