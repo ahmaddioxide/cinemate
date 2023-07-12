@@ -1,11 +1,13 @@
+import 'package:cinemate/constants/api/shimmer.dart';
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/models/movie_credits_response_model.dart';
 import 'package:cinemate/providers/movie_credits_provider.dart';
-import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shimmer/shimmer.dart';
 
 class CastList extends ConsumerWidget {
   final int movieId;
@@ -15,7 +17,7 @@ class CastList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final movieCreditProvider = ref.watch(movieCreditsProvider(movieId));
-    final textTheme=context.textTheme();
+    final textTheme = context.textTheme();
     double width = MediaQuery.sizeOf(context).width;
     double height = MediaQuery.sizeOf(context).height;
 
@@ -78,10 +80,14 @@ class CastList extends ConsumerWidget {
           style: textTheme.titleMedium,
         ),
       ),
-      loading: () => const Center(
-        child: SpinKitThreeBounce(
-          color: Colors.white,
-          size: 30,
+      loading: () => Shimmer(
+        gradient: shimmerGradient,
+        child: Container(
+          height: height*0.1,
+          decoration: BoxDecoration(
+            color: dark[800],
+            borderRadius: BorderRadius.circular(10),
+          ),
         ),
       ),
     );

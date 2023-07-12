@@ -1,18 +1,18 @@
-import 'package:cinemate/constants/extensions.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:cinemate/providers/movie_detail_provider.dart';
-import 'package:cinemate/services/process_image_link.dart';
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/models/movie_model.dart';
-import 'package:cinemate/views/theme/theme.dart';
+import 'package:cinemate/providers/movie_detail_provider.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/cast_list.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/crew_list.dart';
+import 'package:cinemate/views/screens/movie_details_screen/components/movie_details_screen_shimmer.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/movie_tile_with_rating.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/production_companies_card.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/similar_movies_list.dart';
-
+import 'package:cinemate/views/theme/theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieDetailsScreen extends ConsumerWidget {
   final int movieId;
@@ -22,16 +22,9 @@ class MovieDetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final movieDetailProvider = ref.watch(movieDetailsProvider(movieId));
-    // final size=context.size;
-    // double height = size.height;
-    // double width = size.width;
-    final textTheme=context.textTheme();
-    double height=MediaQuery.sizeOf(context).height;
-    double width=MediaQuery.sizeOf(context).width;
-
-
-    //TODO
-
+    final textTheme = context.textTheme();
+    double height = MediaQuery.sizeOf(context).height;
+    double width = MediaQuery.sizeOf(context).width;
 
     return Scaffold(
       backgroundColor: dark[800],
@@ -117,11 +110,27 @@ class MovieDetailsScreen extends ConsumerWidget {
                             style: textTheme.titleLarge,
                           ),
                           SizedBox(height: height * 0.01),
-                          ProductionCompaniesList(productionCompanies: movie.productionCompanies ?? []),
+                          movie.productionCompanies == null ||
+                                  movie.productionCompanies!.isEmpty
+                              ? Center(
+                                  child: Text(
+                                    'No Production Companies',
+                                    style: textTheme.titleMedium,
+                                  ),
+                                )
+                              : ProductionCompaniesList(
+                                  productionCompanies:
+                                      movie.productionCompanies!,
+                                ),
                           SizedBox(height: height * 0.02),
-                          Text('Similar Movies', style: textTheme.titleLarge,),
+                          Text(
+                            'Similar Movies',
+                            style: textTheme.titleLarge,
+                          ),
                           SizedBox(height: height * 0.01),
-                          SimilarMoviesList(movieId: movie.id,),
+                          SimilarMoviesList(
+                            movieId: movie.id,
+                          ),
                         ],
                       ),
                     ),
@@ -133,16 +142,11 @@ class MovieDetailsScreen extends ConsumerWidget {
         ),
         error: (e, _) => Center(
           child: Text(
-            'Something went wrong',
+            wentWrong,
             style: textTheme.titleMedium,
           ),
         ),
-        loading: () => const Center(
-          child: SpinKitThreeBounce(
-            color: Colors.white,
-            size: 30,
-          ),
-        ),
+        loading: () => const MovieDetailsScreenShimmer(),
       ),
     );
   }

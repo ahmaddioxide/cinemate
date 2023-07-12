@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/views/components_shared/genre_chip_gery.dart';
 import 'package:flutter/material.dart';
 import 'package:cinemate/views/theme/theme.dart';
@@ -25,6 +26,7 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme=context.textTheme();
     final height = MediaQuery.sizeOf(context).height;
     final width = MediaQuery.sizeOf(context).width;
 
@@ -65,7 +67,7 @@ class MovieCard extends StatelessWidget {
                       child: Text(
                         // movieName.length > 20 ? '${movieName.substring(0, 20)}...' : movieName,
                         movieName,
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: textTheme.titleMedium,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -74,12 +76,12 @@ class MovieCard extends StatelessWidget {
                       children: [
                         Text(
                           movieReleaseDate,
-                          style: Theme.of(context).textTheme.titleSmall,
+                          style: textTheme.titleSmall,
                         ),
                         const SizedBox(width: 15),
                         Text(
                           '|',
-                          style: Theme.of(context).textTheme.titleMedium,
+                          style: textTheme.titleMedium,
                         ),
                         const SizedBox(width: 15),
                         const Icon(
@@ -90,7 +92,7 @@ class MovieCard extends StatelessWidget {
                         const SizedBox(width: 5),
                         Text(
                           movieRating,
-                          style: Theme.of(context).textTheme.titleSmall,
+                          style: textTheme.titleSmall,
                         ),
                       ],
                     ),
@@ -100,7 +102,7 @@ class MovieCard extends StatelessWidget {
                       // height: height * 0.1,
                       child: Text(
                         movieOverview,
-                        style: Theme.of(context).textTheme.titleSmall,
+                        style: textTheme.titleSmall,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),

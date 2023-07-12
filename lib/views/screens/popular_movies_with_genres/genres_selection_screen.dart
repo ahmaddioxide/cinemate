@@ -55,7 +55,6 @@ class GenreSelectionScreen extends ConsumerWidget {
 
           return Card(
             color: isSelected ? darkAccent : null,
-
             child: InkWell(
               onTap: () {
                 ref
@@ -66,24 +65,13 @@ class GenreSelectionScreen extends ConsumerWidget {
                 child: Text(
                   genreName,
                   style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: isSelected ? Colors.white : null),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: isSelected ? Colors.white : null,
+                  ),
                 ),
               ),
             ),
-            // child: ListTile(
-            //   title: Text(
-            //     genreName,
-            //     style: TextStyle(color: isSelected ? Colors.white : null),
-            //   ),
-            //   trailing: isSelected
-            //       ? const Icon(Icons.check, color: Colors.white)
-            //       : null,
-            //   onTap: () {
-            //     ref.read(selectedGenresProvider.notifier).toggleGenre(genreCode);
-            //   },
-            // ),
           );
         },
       ),

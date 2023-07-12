@@ -1,6 +1,8 @@
 import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/models/home_response_model.dart';
 import 'package:cinemate/providers/home_screen_provider.dart';
+import 'package:cinemate/views/components_shared/movie_list_horozontal_shimmer_skeleton.dart';
 import 'package:cinemate/views/screens/home_screen/movies_list_horizontal.dart';
 import 'package:cinemate/views/screens/now_playing_movies_screen/now_playing_movies_screen.dart';
 import 'package:cinemate/views/screens/popular_movies_with_genres/genres_selection_screen.dart';
@@ -10,7 +12,6 @@ import 'package:cinemate/views/screens/trending_movies_screen/trending_movies_sc
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({
@@ -19,6 +20,7 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final textTheme = context.textTheme();
     final width = MediaQuery.sizeOf(context).width;
     final height = MediaQuery.sizeOf(context).height;
     final homeScreenProviderResponse = ref.watch(homeScreenProvider);
@@ -34,8 +36,8 @@ class HomeScreen extends ConsumerWidget {
           );
         },
         label: Text(
-          'Genres',
-          style: context.textTheme().titleMedium!.copyWith(color: darkAccent),
+          homeScreenFAB,
+          style: textTheme.titleMedium!.copyWith(color: darkAccent),
         ),
       ),
       body: Padding(
@@ -55,14 +57,14 @@ class HomeScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Welcome To',
+                      welcome,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(
                       width: 6,
                     ),
                     Text(
-                      'CineMate',
+                      appName,
                       style:
                           Theme.of(context).textTheme.headlineSmall?.copyWith(
                                 color: Colors.red,
@@ -111,7 +113,7 @@ class HomeScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Trending Movies',
+                      trendingMovies,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     TextButton(
@@ -124,7 +126,7 @@ class HomeScreen extends ConsumerWidget {
                         );
                       },
                       child: Text(
-                        'See All',
+                        seeAll,
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: Colors.red,
@@ -140,16 +142,11 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong $e',
+                      wentWrong,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
-                  loading: () => const Center(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
+                  loading: () => const HorizontalMovieListShimmerEffect(),
                 ),
                 SizedBox(
                   height: height * 0.01,
@@ -158,7 +155,7 @@ class HomeScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Now Playing',
+                      nowPlayingMovies,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     TextButton(
@@ -172,7 +169,7 @@ class HomeScreen extends ConsumerWidget {
                         );
                       },
                       child: Text(
-                        'See All',
+                        seeAll,
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: Colors.red,
@@ -188,16 +185,11 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong $e',
+                      wentWrong,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
-                  loading: () => const Center(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
+                  loading: () => const HorizontalMovieListShimmerEffect(),
                 ),
                 SizedBox(
                   height: height * 0.01,
@@ -206,7 +198,7 @@ class HomeScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Top Rated Movies',
+                      topRatedMovies,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     TextButton(
@@ -219,7 +211,7 @@ class HomeScreen extends ConsumerWidget {
                         );
                       },
                       child: Text(
-                        'See All',
+                        seeAll,
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: Colors.red,
@@ -235,16 +227,11 @@ class HomeScreen extends ConsumerWidget {
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong',
+                      wentWrong,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
-                  loading: () => const Center(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
+                  loading: () => const HorizontalMovieListShimmerEffect(),
                 ),
               ],
             ),

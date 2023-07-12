@@ -1,19 +1,18 @@
+import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/providers/page_number_providers.dart';
 import 'package:cinemate/providers/search_movies_with_keywords_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-
-import 'package:cinemate/services/process_genre_code.dart';
-import 'package:cinemate/services/process_image_link.dart';
-
+import 'package:cinemate/helpers/process_genre_code.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/components_shared/movie_card.dart';
+import 'package:cinemate/views/components_shared/movie_list_shimmer_skeleton.dart';
 import 'package:cinemate/views/components_shared/page_indicator.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
   final String keywords;
+
   const SearchMoviesWithKeywordsScreen({super.key, required this.keywords});
 
   @override
@@ -41,11 +40,12 @@ class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
                     children: [
                       Expanded(
                         child: ListView.builder(
-
-                          itemCount: searchMoviesWithKeywordsResponse.results.length,
+                          itemCount:
+                              searchMoviesWithKeywordsResponse.results.length,
                           itemBuilder: (context, i) {
-                         // if()
-                            final movie = searchMoviesWithKeywordsResponse.results[i];
+                            // if()
+                            final movie =
+                                searchMoviesWithKeywordsResponse.results[i];
                             return MovieCard(
                               movieName: movie.title,
                               moviePoster: ProcessImage.processImageLink(
@@ -75,28 +75,28 @@ class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
                         currentPage: searchMoviesWithKeywordsResponse.page,
                         totalPages: searchMoviesWithKeywordsResponse.totalPages,
                         onTap: (int pageClicked) {
-                          ref.read(searchMoviesWithKeywordsPageNumberProvider.notifier).setPageNumber(pageClicked);
+                          ref
+                              .read(
+                                searchMoviesWithKeywordsPageNumberProvider
+                                    .notifier,
+                              )
+                              .setPageNumber(pageClicked);
                         },
                         scrollController: ScrollController(
                           initialScrollOffset:
-                          (searchMoviesWithKeywordsResponse.page - 1) *
-                              (width * 0.07 + width * 0.01),
+                              (searchMoviesWithKeywordsResponse.page - 1) *
+                                  (width * 0.07 + width * 0.01),
                         ),
                       ),
                     ],
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong',
+                     wentWrong,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
-                  loading: () => const Center(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
+                  loading: () => const MovieListShimmerEffect(),
                 ),
               ),
             ],
@@ -106,6 +106,3 @@ class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
     );
   }
 }
-
-
-

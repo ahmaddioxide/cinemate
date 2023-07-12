@@ -1,11 +1,13 @@
+import 'package:cinemate/constants/api/shimmer.dart';
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/providers/similar_movies_provider.dart';
-import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:shimmer/shimmer.dart';
 
 class SimilarMoviesList extends ConsumerWidget {
   final int movieId;
@@ -91,10 +93,13 @@ class SimilarMoviesList extends ConsumerWidget {
       ),
       loading: () => SizedBox(
         height: height * 0.3,
-        child: const Center(
-          child: SpinKitThreeBounce(
-            color: Colors.white,
-            size: 30.0,
+        child:  Shimmer(
+          gradient: shimmerGradient,
+          child: Container(
+            decoration: BoxDecoration(
+              color: dark[800],
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
         ),
       ),

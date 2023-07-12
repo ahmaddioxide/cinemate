@@ -1,19 +1,23 @@
+import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/providers/page_number_providers.dart';
 import 'package:cinemate/providers/trending_movies_provider.dart';
-import 'package:cinemate/services/process_genre_code.dart';
-import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/helpers/process_genre_code.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/components_shared/movie_card.dart';
 import 'package:cinemate/views/components_shared/page_indicator.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
+
+import '../../components_shared/movie_list_shimmer_skeleton.dart';
 
 class TrendingMoviesScreen extends ConsumerWidget {
   const TrendingMoviesScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final textTheme = context.textTheme();
     final width = MediaQuery.sizeOf(context).width;
     final pageNumber = ref.watch(trendingMoviesPageNumberProvider);
 
@@ -23,8 +27,8 @@ class TrendingMoviesScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Trending Movies',
-          style: Theme.of(context).textTheme.headlineSmall,
+          trendingMovies,
+          style: textTheme.headlineSmall,
         ),
         centerTitle: true,
       ),
@@ -89,16 +93,11 @@ class TrendingMoviesScreen extends ConsumerWidget {
                   ),
                   error: (e, _) => Center(
                     child: Text(
-                      'Something went wrong ',
-                      style: Theme.of(context).textTheme.titleMedium,
+                      wentWrong,
+                      style: textTheme.titleMedium,
                     ),
                   ),
-                  loading: () => const Center(
-                    child: SpinKitThreeBounce(
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                  ),
+                  loading: () => const MovieListShimmerEffect(),
                 ),
               ),
             ],

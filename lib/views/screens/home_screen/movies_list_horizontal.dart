@@ -1,12 +1,12 @@
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/models/movie_model.dart';
-import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
 import 'package:flutter/material.dart';
 
-
 class HorizontalMoviesList extends StatelessWidget {
   final List<Movie> movies;
+
   const HorizontalMoviesList({super.key, required this.movies});
 
   @override
@@ -20,10 +20,9 @@ class HorizontalMoviesList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
-        itemCount:movies.length,
+        itemCount: movies.length,
         itemBuilder: (context, index) {
-          final movie =
-          movies[index];
+          final movie = movies[index];
           return Padding(
             padding: const EdgeInsets.symmetric(
               vertical: 10,
@@ -69,13 +68,10 @@ class HorizontalMoviesList extends StatelessWidget {
                       children: [
                         Text(
                           movie.title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium
-                              ?.copyWith(
-                            color: Colors.white,
-
-                          ),
+                          style:
+                              Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                    color: Colors.white,
+                                  ),
                           maxLines: 3,
                         ),
                         const SizedBox(
@@ -97,8 +93,8 @@ class HorizontalMoviesList extends StatelessWidget {
                                   .textTheme
                                   .bodyMedium
                                   ?.copyWith(
-                                color: Colors.white,
-                              ),
+                                    color: Colors.white,
+                                  ),
                             ),
                           ],
                         ),
@@ -114,3 +110,4 @@ class HorizontalMoviesList extends StatelessWidget {
     );
   }
 }
+

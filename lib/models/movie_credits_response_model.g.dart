@@ -7,7 +7,7 @@ part of 'movie_credits_response_model.dart';
 // **************************************************************************
 
 MovieCreditsResponse _$MovieCreditsResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     MovieCreditsResponse(
       id: json['id'] as int,
       cast: (json['cast'] as List<dynamic>)

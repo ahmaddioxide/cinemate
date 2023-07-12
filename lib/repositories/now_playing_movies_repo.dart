@@ -8,8 +8,9 @@ abstract class NowPlayingMoviesRepo {
 
 class HttpNowPlayingMoviesRepo implements NowPlayingMoviesRepo {
   @override
-  Future<NowPlayingMoviesResponse> getNowPlayingMoviesResponse(
-      [int page = 1]) async {
+  Future<NowPlayingMoviesResponse> getNowPlayingMoviesResponse([
+    int page = 1,
+  ]) async {
     NowPlayingMoviesResponse nowPlayingMoviesResponse;
     final String uri =
         '/movie/now_playing?language=en-US&page=${page.toString()}';

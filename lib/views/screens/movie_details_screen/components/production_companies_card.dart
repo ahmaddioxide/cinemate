@@ -1,6 +1,6 @@
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/models/production_company_model.dart';
-import 'package:cinemate/services/process_image_link.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 

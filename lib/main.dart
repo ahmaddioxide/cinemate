@@ -1,13 +1,13 @@
 import 'dart:io';
 
-import 'package:cinemate/views/screens/home_screen/home_screen.dart';
+import 'package:cinemate/constants/strings.dart';
+import 'package:cinemate/views/screens/onboarding_screens/onboarding_page.dart';
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,9 +37,9 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      title: 'CineMate',
+      title: appName,
       theme: theme(),
-      home:  const HomeScreen(),
+      home: const OnBoardingPage(),
     );
   }
 }
