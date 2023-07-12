@@ -1,6 +1,6 @@
 # CineMate
 
-Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get recommendations, ratings, showtime, and create watchlist. Elevate your movie experience with CineMate.
+Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get recommendations, rating ,details etc. Elevate your movie experience with CineMate.
 
 ## System Diagram
 
@@ -20,3 +20,4 @@ Discover, plan, and enjoy movies effortlessly with TMDb API integration. Get rec
 - [x] As a user, I want to be able to see the trending movies so that I can go with the flow.
 - [x] As a user, I want to be able to see the popular movies so that I can know what other people watch.
 - [x] As a user, I want to be able to see the now playing movies so that I can know what movies are playing in the cinema.
+- [x] As a user, I want to explore movies with my favourite genres so that I can find movies that I might like.
