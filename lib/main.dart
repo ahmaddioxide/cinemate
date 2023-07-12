@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:cinemate/constants/strings.dart';
+import 'package:cinemate/services/shared_prefernces.dart';
+import 'package:cinemate/views/screens/home_screen/home_screen.dart';
 import 'package:cinemate/views/screens/onboarding_screens/onboarding_page.dart';
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:device_preview/device_preview.dart';
@@ -25,10 +27,19 @@ void main() async {
   );
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  Future<Widget> checkIfOpenedBefore() async {
+    bool openedBefore = await SharedPreferenceServiceImpl().ifOpenedBefore();
+    if (openedBefore) {
+      return const HomeScreen();
+    } else {
+      return const OnBoardingPage();
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +50,20 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       title: appName,
       theme: theme(),
-      home: const OnBoardingPage(),
+      home:  FutureBuilder(
+        future: checkIfOpenedBefore(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return snapshot.data as Widget;
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(
+                color: darkAccent,
+              ),
+            );
+          }
+        },
+      ),
     );
   }
 }

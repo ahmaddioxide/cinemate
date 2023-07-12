@@ -1,4 +1,5 @@
 import 'package:cinemate/constants/strings.dart';
+import 'package:cinemate/services/shared_prefernces.dart';
 import 'package:cinemate/views/screens/home_screen/home_screen.dart';
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -49,6 +50,7 @@ class _BodyState extends State<Body> {
                     alignment: Alignment.topRight,
                     child: GestureDetector(
                       onTap: () {
+                        SharedPreferenceServiceImpl().setOpenedBeforeTrue();
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
