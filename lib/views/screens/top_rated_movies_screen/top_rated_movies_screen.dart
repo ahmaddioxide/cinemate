@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/providers/page_number_providers.dart';
@@ -8,8 +10,7 @@ import 'package:cinemate/views/components_shared/movie_card.dart';
 import 'package:cinemate/views/components_shared/movie_list_shimmer_skeleton.dart';
 import 'package:cinemate/views/components_shared/page_indicator.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 
 class TopRatedMoviesScreen extends ConsumerWidget {
   const TopRatedMoviesScreen({super.key});

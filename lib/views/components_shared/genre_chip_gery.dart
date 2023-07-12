@@ -1,5 +1,5 @@
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:cinemate/views/theme/theme.dart';
 
 class GenreChip extends StatelessWidget {
   final String genre;

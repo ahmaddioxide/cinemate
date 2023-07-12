@@ -1,5 +1,5 @@
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:cinemate/views/theme/theme.dart';
 
 class PageIndicator extends StatelessWidget {
   final int currentPage;

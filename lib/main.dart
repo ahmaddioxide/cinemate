@@ -1,15 +1,15 @@
 import 'dart:io';
-
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/services/shared_prefernces.dart';
 import 'package:cinemate/views/screens/home_screen/home_screen.dart';
 import 'package:cinemate/views/screens/onboarding_screens/onboarding_page.dart';
-import 'package:cinemate/views/theme/theme.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +30,6 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   Future<Widget> checkIfOpenedBefore() async {
     bool openedBefore = await SharedPreferenceServiceImpl().ifOpenedBefore();
     if (openedBefore) {

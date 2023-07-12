@@ -1,13 +1,13 @@
-import 'package:cinemate/constants/api/shimmer.dart';
-import 'package:cinemate/constants/assets.dart';
-import 'package:cinemate/constants/extensions.dart';
-import 'package:cinemate/providers/similar_movies_provider.dart';
-import 'package:cinemate/helpers/process_image_link.dart';
-import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cinemate/providers/similar_movies_provider.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
+import 'package:cinemate/constants/api/shimmer.dart';
+import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
+import 'package:cinemate/views/theme/theme.dart';
 
 class SimilarMoviesList extends ConsumerWidget {
   final int movieId;

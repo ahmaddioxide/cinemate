@@ -1,6 +1,7 @@
-import 'package:cinemate/constants/api/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cinemate/constants/api/shimmer.dart';
+
 
 class HorizontalMovieListShimmerEffect extends StatelessWidget {
   const HorizontalMovieListShimmerEffect({super.key});

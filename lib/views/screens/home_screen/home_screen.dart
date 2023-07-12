@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cinemate/providers/home_screen_provider.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/constants/strings.dart';
 import 'package:cinemate/models/home_response_model.dart';
-import 'package:cinemate/providers/home_screen_provider.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:cinemate/views/components_shared/movie_list_horozontal_shimmer_skeleton.dart';
 import 'package:cinemate/views/screens/home_screen/movies_list_horizontal.dart';
 import 'package:cinemate/views/screens/now_playing_movies_screen/now_playing_movies_screen.dart';
@@ -9,9 +12,7 @@ import 'package:cinemate/views/screens/popular_movies_with_genres/genres_selecti
 import 'package:cinemate/views/screens/search_movies_with_keywords_screen/search_movies_with_keywords_screen.dart';
 import 'package:cinemate/views/screens/top_rated_movies_screen/top_rated_movies_screen.dart';
 import 'package:cinemate/views/screens/trending_movies_screen/trending_movies_screen.dart';
-import 'package:cinemate/views/theme/theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({

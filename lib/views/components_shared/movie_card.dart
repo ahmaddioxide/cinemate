@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/views/components_shared/genre_chip_gery.dart';
-import 'package:flutter/material.dart';
-import 'package:cinemate/views/theme/theme.dart';
+
 
 class MovieCard extends StatelessWidget {
   final String movieName;

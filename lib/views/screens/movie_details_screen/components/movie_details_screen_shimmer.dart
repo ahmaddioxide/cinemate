@@ -1,7 +1,7 @@
-import 'package:cinemate/constants/api/shimmer.dart';
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cinemate/constants/api/shimmer.dart';
+import 'package:cinemate/views/theme/theme.dart';
 
 class MovieDetailsScreenShimmer extends StatelessWidget {
   const MovieDetailsScreenShimmer({super.key});

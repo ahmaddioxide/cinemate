@@ -1,7 +1,8 @@
-import 'package:cinemate/views/screens/popular_movies_with_genres/popular_movies_with_genres_screen.dart';
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cinemate/views/theme/theme.dart';
+import 'package:cinemate/views/screens/popular_movies_with_genres/popular_movies_with_genres_screen.dart';
+
 
 final Map<String, int> movieGenres = {
   'Action': 28,

@@ -1,18 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:cinemate/models/movie_model.dart';
+import 'package:cinemate/providers/movie_detail_provider.dart';
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/constants/extensions.dart';
 import 'package:cinemate/constants/strings.dart';
-import 'package:cinemate/models/movie_model.dart';
-import 'package:cinemate/providers/movie_detail_provider.dart';
 import 'package:cinemate/helpers/process_image_link.dart';
+import 'package:cinemate/views/theme/theme.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/cast_list.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/crew_list.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/movie_details_screen_shimmer.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/movie_tile_with_rating.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/production_companies_card.dart';
 import 'package:cinemate/views/screens/movie_details_screen/components/similar_movies_list.dart';
-import 'package:cinemate/views/theme/theme.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class MovieDetailsScreen extends ConsumerWidget {
   final int movieId;

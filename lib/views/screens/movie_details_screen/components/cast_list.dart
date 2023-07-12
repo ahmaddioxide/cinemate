@@ -1,13 +1,14 @@
-import 'package:cinemate/constants/api/shimmer.dart';
-import 'package:cinemate/constants/assets.dart';
-import 'package:cinemate/constants/extensions.dart';
-import 'package:cinemate/models/movie_credits_response_model.dart';
-import 'package:cinemate/providers/movie_credits_provider.dart';
-import 'package:cinemate/helpers/process_image_link.dart';
-import 'package:cinemate/views/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shimmer/shimmer.dart';
+import 'package:cinemate/providers/movie_credits_provider.dart';
+import 'package:cinemate/models/movie_credits_response_model.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
+import 'package:cinemate/constants/api/shimmer.dart';
+import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/views/theme/theme.dart';
+
 
 class CastList extends ConsumerWidget {
   final int movieId;

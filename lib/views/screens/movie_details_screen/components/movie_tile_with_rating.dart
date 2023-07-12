@@ -1,10 +1,11 @@
-import 'package:cinemate/constants/assets.dart';
-import 'package:cinemate/constants/extensions.dart';
-import 'package:cinemate/models/genre_model.dart';
-import 'package:cinemate/helpers/process_genre_list.dart';
-import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:cinemate/models/genre_model.dart';
+import 'package:cinemate/constants/assets.dart';
+import 'package:cinemate/constants/extensions.dart';
+import 'package:cinemate/helpers/process_genre_list.dart';
+import 'package:cinemate/helpers/process_image_link.dart';
+
 
 class MovieTileWithRating extends StatelessWidget {
   final String? posterPath;

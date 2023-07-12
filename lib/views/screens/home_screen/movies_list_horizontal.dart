@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:cinemate/constants/assets.dart';
 import 'package:cinemate/models/movie_model.dart';
 import 'package:cinemate/helpers/process_image_link.dart';
 import 'package:cinemate/views/screens/movie_details_screen/movie_details_screen.dart';
-import 'package:flutter/material.dart';
+
 
 class HorizontalMoviesList extends StatelessWidget {
   final List<Movie> movies;
