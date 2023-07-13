@@ -1,3 +1,4 @@
+import 'package:cinemate/constants/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemate/views/theme/theme.dart';
@@ -40,7 +41,8 @@ class GenreSelectionScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Genre Selection'),
+        centerTitle: true,
+        title:  Text('Genre Selection',style: context.textTheme().titleLarge,),
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -88,9 +90,9 @@ class GenreSelectionScreen extends ConsumerWidget {
             ),
           );
         },
-        label: const Text(
+        label:  Text(
           'Continue',
-          style: TextStyle(color: darkAccent),
+          style: context.textTheme().bodyLarge!.copyWith(color: darkAccent),
         ),
         icon: const Icon(Icons.arrow_forward, color: darkAccent),
       ),

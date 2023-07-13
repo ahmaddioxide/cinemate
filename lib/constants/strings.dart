@@ -6,6 +6,8 @@ const String seeAll='See All';
 const String wentWrong='Something Went Wrong';
 const String nowPlayingMovies='Now Playing';
 const String topRatedMovies='Top Rated Movies';
+const String pleaseSearch='Please Search for Something';
+const String noResultFound='No Result Found';
 const List<Map<String, String>> onboardData = [
   {
     'text': "Welcome to CineMate! We're excited to help you plan the perfect movie night for you and your friends.",
