@@ -17,14 +17,20 @@ void main() async {
       await PlatformAssetBundle().load('assets/ca/lets-encrypt-r3.pem');
   SecurityContext.defaultContext
       .setTrustedCertificatesBytes(data.buffer.asUint8List());
-  runApp(
+
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) =>runApp(
     DevicePreview(
       enabled: !kReleaseMode,
       builder: (context) => const ProviderScope(
         child: MyApp(),
       ), // Wrap your app
     ),
+  ),
   );
+
 }
 
 

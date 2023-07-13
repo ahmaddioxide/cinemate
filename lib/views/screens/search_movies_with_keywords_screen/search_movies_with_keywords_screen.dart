@@ -1,3 +1,4 @@
+import 'package:cinemate/constants/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemate/providers/page_number_providers.dart';
@@ -40,11 +41,18 @@ class SearchMoviesWithKeywordsScreen extends ConsumerWidget {
                   data: (searchMoviesWithKeywordsResponse) => Column(
                     children: [
                       Expanded(
-                        child: ListView.builder(
+
+                        child: searchMoviesWithKeywordsResponse.results.isEmpty?
+                            Center(
+                              child: Text(
+                                'No results found',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                            )
+                            :ListView.builder(
                           itemCount:
                               searchMoviesWithKeywordsResponse.results.length,
                           itemBuilder: (context, i) {
-                            // if()
                             final movie =
                                 searchMoviesWithKeywordsResponse.results[i];
                             return MovieCard(
