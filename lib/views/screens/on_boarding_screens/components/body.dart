@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cinemate/constants/strings.dart';
-import 'package:cinemate/services/shared_prefernces.dart';
+import 'package:cinemate/services/shared_preferences.dart';
 import 'package:cinemate/views/screens/home_screen/home_screen.dart';
 import 'package:cinemate/views/theme/theme.dart';
 

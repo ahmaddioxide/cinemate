@@ -6,9 +6,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cinemate/views/theme/theme.dart';
 import 'package:cinemate/constants/strings.dart';
-import 'package:cinemate/services/shared_prefernces.dart';
+import 'package:cinemate/services/shared_preferences.dart';
 import 'package:cinemate/views/screens/home_screen/home_screen.dart';
-import 'package:cinemate/views/screens/onboarding_screens/onboarding_page.dart';
+import 'package:cinemate/views/screens/on_boarding_screens/on_boarding_screen.dart';
 
 
 void main() async {

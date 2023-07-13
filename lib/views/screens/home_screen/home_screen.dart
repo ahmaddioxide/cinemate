@@ -76,34 +76,37 @@ class HomeScreen extends ConsumerWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                TextFormField(
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.white,
-                      ),
-                  onFieldSubmitted: (value) {
+                InkWell(
+                  onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            SearchMoviesWithKeywordsScreen(keywords: value),
+                        builder: (context) => const SearchMoviesWithKeywordsScreen(
+                        ),
                       ),
                     );
                   },
-                  decoration: InputDecoration(
-                    hintText: 'Search Movies',
-                    hintStyle:
-                        Theme.of(context).textTheme.titleMedium?.copyWith(
-                              color: Colors.grey[400],
-                            ),
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: darkAccent,
-                    ),
-                    filled: true,
-                    fillColor: Colors.grey[800],
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide.none,
+                  child: TextFormField(
+                    enabled: false,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.white,
+                        ),
+                    decoration: InputDecoration(
+                      hintText: 'Search Movies',
+                      hintStyle:
+                          Theme.of(context).textTheme.titleMedium?.copyWith(
+                                color: Colors.grey[400],
+                              ),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: darkAccent,
+                      ),
+                      filled: true,
+                      fillColor: Colors.grey[800],
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                 ),
