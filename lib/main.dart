@@ -23,7 +23,7 @@ void main() async {
     DeviceOrientation.portraitDown,
   ]).then((value) =>runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
+      enabled: false,
       builder: (context) => const ProviderScope(
         child: MyApp(),
       ), // Wrap your app
