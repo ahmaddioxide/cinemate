@@ -14,7 +14,7 @@ FutureProvider.autoDispose.family<SearchMovieWithKeywordResponse, String>(
         final pageNumber = ref.watch(searchMoviesWithKeywordsPageNumberProvider);
 
         return searchMoviesWithKeywordRepo.searchMovieWithKeywords(
-            keywords, pageNumber);
+            keywords, pageNumber,);
     },
 );
 
